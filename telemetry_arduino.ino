@@ -48,7 +48,7 @@ void setup() {
   mpu6050.begin();
   mpu6050.calcGyroOffsets(true);
   Serial.println();
-  logFile.println("deltaT, accX, accY, accZ, thetaX, thetaY, thetaZ");
+  logFile.println("deltaT, accX, accY, accZ, roll, pitch, yaw");
 }
 
 void loop() {
@@ -78,7 +78,7 @@ void innerLoop() {
   logFile.print(", ");logFile.print(mpu6050.getAccY(),7);
   logFile.print(", ");logFile.print(mpu6050.getAccZ(),7);
 
-  logFile.print(", ");logFile.print(mpu6050.getAngleX(),7);
-  logFile.print(", ");logFile.print(mpu6050.getAngleY(),7);
-  logFile.print(", ");logFile.println(mpu6050.getAngleZ(),7);
+  logFile.print(", ");logFile.print(mpu6050.getGyroAngleX(),7);
+  logFile.print(", ");logFile.print(mpu6050.getGyroAngleY(),7);
+  logFile.print(", ");logFile.println(mpu6050.getGyroAngleZ(),7);
 }
